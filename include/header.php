@@ -11,12 +11,14 @@
   </head>
   <body>
     <div id="header">
-      <span id="logo">MovieGenie </span>
+      <span id="logo"><a href="index.php">MovieGenie</a> </span>
       <div id="navbar">
         <div id="nav">
-        
-        <input type="text" placeholder="Search by movies,actor,director etc..." id="search">
-        <a id="addbtn">+ New</a>  
+        <form action="search.php" method="post" id="searchform">
+        <input type="text" placeholder="Search by movies,actor,director,genre etc..." id="search" name="key">
+        <a href="#" class="submitbtn btn" onclick="document.getElementById('searchform').submit()" style="display: none;">Go</a>
+        </form>
+        <a id="addbtn" class="btn">+ New</a>  
       </div>
       </div>
     </div>

@@ -1,3 +1,19 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url("../fonts/Raleway1.woff2") format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), local('Raleway-Regular'), url("../fonts/Raleway2.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
 
 html{
   background-color: #fff;
@@ -8,8 +24,14 @@ body {
   color:#212121;
   display: flex;
   flex-direction: row;
+  margin:0px;
+  padding:0px;
   
   
+}
+
+form{
+  display: inline;
 }
 
 #header{
@@ -17,8 +39,11 @@ body {
   justify-content: space-between;
   position: fixed;
   top:0;
-  width:100%;
+  width:110%;
   background-color: #272634;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  
   
  
   color:#fff;
@@ -29,7 +54,10 @@ body {
   
 }
 #header span{
-  padding-left:3%;
+  text-align: center;
+  /* padding-left: 2.5%; */
+  font-weight: 300;
+  
 }
 #header#logo{
   margin:0px;
@@ -40,8 +68,9 @@ body {
 }
 #logo{
   padding:20px;
-  font-size: 20px;
+  font-size: 22px;
   background:#272634;
+  text-transform: capitalize;
   
 }
 
@@ -57,10 +86,11 @@ body {
   padding:10px;
   border: none;
   color:#fff;
-  background: transparent;
-  width:80%;
+  background: #272634;
+  opacity: 10%;
+  width:60%;
   margin:10px;
-  
+  font:20px "Raleway","Lucida Grande", Helvetica, Arial, sans-serif; 
   
   
 }
@@ -72,12 +102,65 @@ body {
   color:white;
   border:1px solid lightseagreen;
   padding:5px 20px;
+  /*-moz-appearance: button;
+  appearance: button;
+  -webkit-appearance: button;*/
+  cursor: pointer;
+  
+}
+
+.close-btn{
+  float: right;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 100ms ease-in;
+  -webkit-transform: scale(1);
+  -ms-transition: all 100ms ease-in;
+  -ms-transform: scale(1);
+  -moz-transition: all 100ms ease-in;
+  -moz-transform: scale(1);
+  transition: all 100ms ease-in;
+  transform: scale(1);
+}
+
+
+.close-btn:hover{
+  z-index:2;
+  -webkit-transition: all 100ms ease-in;
+  -webkit-transform: scale(1.5);
+  -ms-transition: all 100ms ease-in;
+  -ms-transform: scale(1.5);
+  -moz-transition: all 100ms ease-in;
+  -moz-transform: scale(1.5);
+  transition: all 100ms ease-in;
+  transform: scale(1.5);
+}
+
+.btn{
+  background: lightseagreen;
+  color:white;
+  border:1px solid lightseagreen;
+  padding:5px 20px;
+  /*-moz-appearance: button;
+  appearance: button;
+  -webkit-appearance: button;*/
+  cursor: pointer;
+}
+
+.submitbtn{
+  background: lightseagreen;
+  color:white;
+  border:1px solid lightseagreen;
+  padding:5px 20px;
   -moz-appearance: button;
   appearance: button;
   -webkit-appearance: button;
   cursor: pointer;
-  
+  margin:0 20px 0px 0px;
 }
+
+
 
 #left-panel{
   height: 100%;
@@ -90,32 +173,39 @@ body {
   flex-direction:row;
   justify-content: space-around;
   padding: 0px 0;
+
   height: auto;
-  margin:0 auto;
+  margin:0px auto;
   margin-top:125px;
+  margin-bottom: 100px;
+  
   border:1px solid #d3d3d3;
-  width: 79%;
+  width: 80%; 
+  /* change ^ to 79% after normalise */
   
 }
 
 
 #panel{
   color:#fff;
-  width:12%;
-  
+  /*width:10%;*/
+  min-width: 140px;
   padding-top:70px;
-  text-align: center;
   background: #272634;
 }
 
 #panel div{
   margin:30px 0px;
   padding:10px 0px;
-  
+  text-align: center;
   
 }
 
 #panel div:hover{
+  background: lightseagreen;
+}
+
+.focus{
   background: lightseagreen;
 }
 .pane{
@@ -134,7 +224,14 @@ body {
 
 #main{
   padding: 10px 2%;
-  
+  align-items: center;
+  text-align: center;
+}
+
+.footer{
+  padding: 10px 2%;
+  text-align: center;
+  border-top:1px solid #d3d3d3;
 }
 
 .head{
@@ -157,13 +254,22 @@ img{
   width:280px;
   height:400px;
   margin:30px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 0 8px 8px white inset;
 }
 h2{
-  padding:30px;
+  /* padding:30px; */
+  padding:10px;
+}
+.mov-info{
+  padding:5px;
+  text-align: left;
+  height: fit-content;
 }
 
+.credits-info{
+  margin:10px 10px;
+ 
+}
 .image{
   display:inline-block; 
   

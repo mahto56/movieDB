@@ -9,6 +9,8 @@
     //run query
     $movies = $db->getMovieDetails();
     $genres = $db->getGenres();
+    $count = $db->getMovieCount();
+    $count = $count->fetch_assoc();
 ?>
 
 <div id="panel">
@@ -24,7 +26,7 @@
          
       <div id="content" class="pane">
           <div class="head">
-          <h3>Popular Movies</h3>
+          <h3>All Movies (count: <?=$count['count(*)']?>)</h3>
           </div>
           <div id="main">
 
@@ -36,10 +38,10 @@
 
 
 
-          <?php for($i=0;$i<13;$i++): ?>
+<!--           <?php for($i=0;$i<13;$i++): ?>
                 <div class="image"><img src="https://dummyimage.com/180x300/333/fff"></div>  
             <?php endfor ?>
-
+ -->
           </div>
           
       </div>

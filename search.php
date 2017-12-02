@@ -25,7 +25,7 @@
          
       <div id="content" class="pane">
           <div class="head">
-          <h3>Search Results</h3>
+          <h3>Search Results for <?=$_POST['key']?></h3>
           </div>
           <div id="main">
 

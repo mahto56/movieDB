@@ -27,6 +27,7 @@
     if($rating!=null)
     $rating = $rating->fetch_assoc();  
     $credits = $db->getCredits($_GET['id']);
+    $directors = $db->getDirectors($_GET['id']);
     // $credits = $credits->fetch_assoc();  
     
     ?>
@@ -54,10 +55,12 @@
           <?php endif ?>
           
           </div>
+
+          
         </div>
         </div>
 
-        <div class="credits" style="margin: 10px;display: flex;flex-direction: row;">
+        <div class="credits" style="margin: 10px;display: flex;flex-direction: row;justify-content: space-around;">
         <div style="display: flex;flex-direction: column; margin: 20px;">
         <h1>Cast </h1>
 
@@ -71,9 +74,11 @@
         <div style="display: flex;flex-direction: column; margin: 20px;">
         <h1>Direction </h1>
 
-            <?php if($credits) :?>
-            <?php while($credit = $credits->fetch_assoc()) :?>
-              <div class="credits-info"><?=$credit['act_name']?>: <?=$credit['role']?></div>  
+            <?php if($directors) :?>
+            <?php while($director = $directors->fetch_assoc()) :?>
+              <div class="credits-info"><b><?=$director['dir_name']?></b>
+                
+              </div>  
             <?php endwhile ?>
           <?php endif ?>
         </div>

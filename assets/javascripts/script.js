@@ -1,6 +1,7 @@
 btn = document.getElementById('addbtn')
 btn.addEventListener("click",()=>{
-    alert('btn pressed');
+    // let name= prompt("movie name> ");
+    // console.log(name);
 });
 
 console.log(data);

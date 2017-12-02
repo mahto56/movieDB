@@ -8,21 +8,13 @@
 
     //run query
     $movies = $db->getMovieByGenre($_GET['gen']);
+    if(!$movies){
+      $movies = $db->getMovieByActorName($_GET['act_name']);
+    }
     $genres = $db->getGenres();
 ?>
 
-<!--     <div id="panel">
-        <?php if($genres) :?>
-            <?php while($genre = $genres->fetch_assoc()) :?>
-                <?php if($genre['gen_title'] == $_GET['gen']) : ?>
-                <div class="genre focus"> <a href="genre.php?gen=<?=$genre['gen_title'];?>"><?=$genre['gen_title']?></a> </div>
-                <?php else: ?> 
-                <div class="genre"> <a href="genre.php?gen=<?=$genre['gen_title'];?>"><?=$genre['gen_title']?></a> </div>
-                <?php endif ?>
-            <?php endwhile ?>
-        <?php endif ?>
-    </div>
- -->
+
     <div id="container">
         
          
